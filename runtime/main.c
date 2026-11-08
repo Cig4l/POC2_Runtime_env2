@@ -32,6 +32,8 @@ int main(void) {
 
         if(ready > 0) {
             printf("%s\n", "OK PROCESS");
+            waitpid(pid, NULL, 0);
+            printf("%s\n", "Process terminé !");
         } else if(ready == 0) {
             printf("%s\n", "TIMEOUT");
             kill(pid, SIGKILL);
