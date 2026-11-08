@@ -32,6 +32,7 @@ int main(void) {
 
         if(ready > 0) {
             printf("%s\n", "OK PROCESS");
+            kill(pid, SIGKILL);
             waitpid(pid, NULL, 0);
             printf("%s\n", "Process terminé !");
         } else if(ready == 0) {
@@ -43,6 +44,7 @@ int main(void) {
             printf("%s\n", "ERROR");
             kill(pid, SIGKILL);
             waitpid(pid, NULL, 0);
+            printf("%s\n", "Process terminé !");
         }
     }
     return 0;
